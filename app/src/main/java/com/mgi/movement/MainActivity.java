@@ -1,43 +1,43 @@
 package com.mgi.movement;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.os.Bundle;
-import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends Activity {
-    private WebView web;
+public class MainActivity extends AppCompatActivity {
+
+    private WebView webView;
 
     @Override
-    protected void onCreate(Bundle b) {
-        super.onCreate(b);
-        web = new WebView(this);
-        web.setBackgroundColor(0xfff4f7fb);
-        web.getSettings().setJavaScriptEnabled(true);
-        web.getSettings().setDomStorageEnabled(true);
-        web.getSettings().setAllowFileAccess(true);
-        web.getSettings().setAllowContentAccess(true);
-        web.setWebViewClient(new WebViewClient());
-        web.setWebChromeClient(new WebChromeClient());
-        web.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        web.loadUrl("file:///android_asset/index.html");
-        setContentView(web);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        webView = findViewById(R.id.webview);
+
+        // WebView Settings
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setAllowContentAccess(true);
+        webSettings.setAllowFileAccessFromFileURLs(true);
+        webSettings.setAllowUniversalAccessFromFileURLs(true);
+
+        webView.setWebViewClient(new WebViewClient());
+
+        // Assets থেকে index.html লোড করা
+        webView.loadUrl("file:///android_asset/index.html");
     }
 
     @Override
     public void onBackPressed() {
-        if (web != null && web.canGoBack()) {
-            web.goBack();
+        if (webView.canGoBack()) {
+            webView.goBack();
         } else {
-            new AlertDialog.Builder(this)
-                    .setTitle("Exit app?")
-                    .setMessage("Do you want to exit the MGI Movement Register?")
-                    .setNegativeButton("No", null)
-                    .setPositiveButton("Yes", (d, w) -> finish())
-                    .show();
+            super.onBackPressed();
         }
     }
 }
