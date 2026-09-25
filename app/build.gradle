@@ -1,1 +1,4 @@
-
+plugins { id "com.android.application" }
+android { namespace "com.mgi.movement"; compileSdk 35
+ defaultConfig { applicationId "com.mgi.movement"; minSdk 23; targetSdk 35; versionCode 1; versionName "1.0" }
+}
