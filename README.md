@@ -1,11 +1,22 @@
-# MGI Movement Register Android App
-This project converts the supplied `MGI Movement Register-2026.xlsx` into a standalone Android app.
-- Dashboard with performance indicators
-- Separate button for each populated Excel sheet: JAN, FEB, MAR, APR
-- Searchable register tables
-- Portrait/mobile-first UI
-- Android back button asks Yes/No before exit
-- Source workbook values are embedded in `app/src/main/assets/data.json`
+# MGI Movement Register — Android Build
 
-Build with Android Studio (JDK 17+ and Android SDK 35). Open this folder as a project and Build > Build APK(s).
-Note: this environment does not include the Android SDK/Gradle toolchain, so an APK binary could not be compiled here. The app logic and embedded data were validated separately against the supplied workbook.
+This project is configured for GitHub Actions / Android Studio builds.
+
+## GitHub build
+1. Upload the complete project to a GitHub repository.
+2. Push to `main` or `master`, or run **Actions → Build Android APK → Run workflow**.
+3. The workflow uses JDK 17 and Gradle 8.7 and builds `app-debug.apk`.
+4. Download the APK from the workflow's **Artifacts** section.
+
+## Important fixes in this version
+- Corrected Android asset directory to `app/src/main/assets`.
+- Added explicit Android Gradle Plugin 8.6.1 configuration.
+- Added explicit repositories in `settings.gradle`.
+- Added a valid debug/release build configuration.
+- Updated GitHub Actions to provision Gradle 8.7 directly, so a Gradle wrapper is not required.
+- Added WebViewClient/WebChromeClient configuration.
+- Kept portrait orientation and Android Back → Yes/No exit confirmation.
+- Verified `data.json` parses correctly and every data row matches the 16-column header structure.
+
+## Current scope
+The supplied register data and dashboard are embedded in the app. A real cloud backup service requires a cloud provider/backend and authentication configuration; this build does not pretend that local storage is cloud backup.
