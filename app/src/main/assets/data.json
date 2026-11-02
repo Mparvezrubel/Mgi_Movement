@@ -1,0 +1,37 @@
+{
+  "title": "MGI Movement Register 2026",
+  "meta": {
+    "sr": "Md. Masum Parvez",
+    "db": "Sarkar Traders",
+    "territory": "Dinajpur",
+    "region": "Dinajpur"
+  },
+  "headers": [
+    "Date/No.",
+    "Route Name",
+    "Total Outlet",
+    "Today's Target",
+    "Today's Order",
+    "Total Memo",
+    "Strike Rate %",
+    "LPC %",
+    "IMS Today",
+    "CIMS",
+    "CIMS %",
+    "N.Exe. Value",
+    "N.Exe. %",
+    "Cumulative N.Exe.",
+    "Cumulative Sales",
+    "Achievement %"
+  ],
+  "sheets": [
+    {
+      "name": "Sales Movement Register-Jan-26",
+      "rows": [
+        [1, "College Bazar", 68, 20000, 15386, 45, 0.66, 0.7, 2000, 0, 0, 0, 0, 0, 0, 0],
+        [2, "Kachdaho", 86, 30000, 22830, 62, 0.72, 0.74, 2500, 0, 0, 0, 0, 0, 0, 0],
+        [3, "Ketra", 65, 20000, 16343, 50, 0.77, 0.8, 1800, 0, 0, 0, 0, 0, 0, 0]
+      ]
+    }
+  ]
+}
